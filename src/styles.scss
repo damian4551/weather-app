@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap');
+
+//colors
+$black: #000;
+$blue: #1E6BE7;
+$white: #fff;
+
+//font as variable 
+$mainFont: 'Montserrat';
+
+//inital settings
+*, body, html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+//animation
+@keyframes iconAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//wrapper
+.wrapper {
+    height: 100%;
+    width: 100%;
+    @media (min-width: 1280px) {
+        height: 100vh;
+    }
+    .inner-wrapper {
+        padding: 0 32px;
+        position: relative;
+        @media (min-width: 480px) {
+            padding: 0 48px;
+        }
+        @media (min-width: 620px) {
+            padding: 0 64px;
+        }
+        @media (min-width: 620px) {
+            padding: 0 128px;
+        }
+        .loading-bg {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: $white;
+            z-index: 999;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+            .loading-img {
+                height: 80px;
+                width: 80px;
+                background: url(/icons/clear.svg);
+                animation: iconAnimation 4s linear infinite;
+                background-size: 100% 100%;
+            }
+        }
+    }
+}
+
+//logo
+.logo {
+    text-align: center;
+    font-family: $mainFont;
+    font-weight: 400;
+    font-size: 1.2em;
+    color: $black;
+    padding: 16px 0;
+    @media (min-width: 620px) {
+        padding: 24px 0;
+    }
+    @media (min-width: 1280px) {
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (min-width: 1680px) {
+        font-size: 1.4em;
+    }
+    span {
+        font-weight: 700;
+        color: $blue;
+    }
+}
+
+//input
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    position: relative;
+    @media (min-width: 1280px) {
+        height: 8vh;
+    }
+    input {
+        border: 2px solid $blue;
+        border-radius: 20px;
+        width: 100%;
+        height: 35px;
+        font-family: $mainFont;
+        font-size: 0.9em;
+        color: $black;
+        padding: 0.2em 1.5em;
+        outline: none;
+        @media (min-width: 620px) {
+            font-size: 1em;
+            height: 45px;
+        }
+        @media (min-width: 992px) {
+            width: 50%;
+        }
+        @media (min-width: 1680px) {
+            height: 50px;
+            font-size: 1.2em;
+        }
+        &::placeholder {
+            font-family: $mainFont;
+            font-size: 0.9em;
+            color: $black;
+            @media (min-width: 620px) {
+                font-size: 1em;
+            }
+        }
+    }
+    .search-list {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        padding: 8px 0px;
+        background-color: $white;
+        border-radius: 20px;
+        @media (min-width: 992px) {
+            width: 50%;
+        }
+        ul {
+            font-family: $mainFont;
+            font-size: 0.9em;
+            list-style-type: none;
+            color: $black;
+            @media (min-width: 1680px) {
+                font-size: 1.2em;
+            }
+            li {
+                padding: 0.5em 2em;
+                padding-top: 1em;
+                border-bottom: 2px solid $blue;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .items-found {
+            font-family: $mainFont;
+            font-size: 0.9em;
+            color: $black;
+            text-align: center;
+            padding-top: 1em;
+            span {
+                color: $blue;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+//current container
+.current-container {
+    padding: 48px 0;
+    @media (min-width: 992px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    @media (min-width: 1280px) {
+        height: 40vh;
+        padding: 0;
+    }
+    .main-info-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 2em;
+        @media (min-width: 1280px) {
+            width: 40vw;
+        }
+        .main-info-block {
+            display: flex;
+            flex-direction: column;
+            font-family: $mainFont;
+            color: $black;
+            text-transform: lowercase;
+            .city {
+                font-size: 2em;
+                font-weight: 700;
+                @media (min-width: 1280px) {
+                    font-size: 3em;
+                }
+                @media (min-width: 1680px) {
+                    font-size: 4em;
+                }
+            }
+            .temperature {
+                font-size: 3.5em;
+                font-weight: 200;
+                text-transform: uppercase;
+                @media (min-width: 1280px) {
+                    font-size: 4.5em;
+                }
+                @media (min-width: 1680px) {
+                    font-size: 5em;
+                }
+            }
+            .description {
+                font-size: 0.9em;
+                font-weight: 300;
+                text-transform: capitalize;
+                @media (min-width: 480px) {
+                    font-size: 1em;
+                }
+                @media (min-width: 620px) {
+                    font-size: 1.2em;
+                }
+                @media (min-width: 1680px) {
+                    font-size: 1.4em;
+                }
+            }
+        }
+        img {
+            width: 35vw;
+            height: 35vw;
+            @media (min-width: 620px) {
+                width: 25vw;
+                height: 25vw;
+            }
+            @media (min-width: 992px) {
+                margin: 0 32px;
+            }
+            @media (min-width: 1280px) {
+                width: 230px;
+                height: 230px;
+            }
+        }
+    }
+    .more-info-block {
+        .more-current-info {
+            font-family: $mainFont;
+            font-size: 0.9em;
+            font-weight: 300;
+            color: $black;
+            padding-bottom: 0.4em;
+            @media (min-width: 480px) {
+                font-size: 1em;
+            }
+            @media (min-width: 620px) {
+                font-size: 1.2em;
+            }
+            @media (min-width: 1680px) {
+                font-size: 1.4em;
+            }
+            span {
+                font-weight: 700;
+                color: $blue;
+            }
+        }
+    }
+}
+
+//forecast container
+.forecast-container {
+    width: calc(100% + 64px);
+    margin-left: -32px;
+    @media (min-width: 480px) {
+        width: calc(100% + 96px);
+        margin-left: -48px;
+    }
+    @media (min-width: 620px) {
+        width: calc(100% + 128px);
+        margin-left: -64px;
+    }
+    @media (min-width: 1280px) {
+        width: calc(100% + 256px);
+        margin-left: -128px;
+    }
+    @media (min-width: 1280px) {
+        height: 44vh;
+    }
+    .title-block {
+        background-color: $blue;
+        height: 50px;
+        width: 100%;
+        padding: 0 32px;
+        font-family: $mainFont;
+        font-size: 1em;
+        font-weight: 700;
+        color: $white;
+        position: relative;
+        display: flex;
+        align-items: center;
+        @media (min-width: 480px) {
+            padding: 0 48px;
+        }
+        @media (min-width: 620px) {
+            padding: 0 64px;
+            font-size: 1.2em;
+        }
+        @media (min-width: 1280px) {
+            padding: 0 128px;
+        }
+        @media (min-width: 1680px) {
+            font-size: 1.4em;
+        }
+        ::before {
+            content: '';
+            position: absolute;
+            width: 0; 
+            height: 0; 
+            bottom: -40%;
+            left: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid $blue;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0; 
+            height: 0; 
+            bottom: 60%;
+            right: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid $blue;
+        }
+    }
+    .forecast-weather-container {
+        padding: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        @media (min-width: 480px) {
+            padding: 32px 48px;
+        }
+        @media (min-width: 620px) {
+            padding: 32px 64px;
+        }
+        @media (min-width: 1280px) {
+            height: calc(44vh - 50px);
+            padding: 0 64px;
+        }
+        .weather-element {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 1.5em;
+            width: 30vw;
+            @media (min-width: 992px) {
+                width: 35vw;
+            }
+            @media (min-width: 1280px) {
+                width: 20vw;
+                padding: 1.5em 0;
+            }
+            .forecast-weather-info {
+                font-family: $mainFont;
+                font-size: 0.9em;
+                font-weight: 300;
+                color: $black;
+                margin-right: 10px;
+                width: 65px;
+                @media (min-width: 480px) {
+                    font-size: 1em;
+                }
+                @media (min-width: 620px) {
+                    font-size: 1.2em;
+                }
+                @media (min-width: 1680px) {
+                    font-size: 1.4em;
+                    margin-right: 35px;
+                }
+                .date {
+                    color: $blue;
+                    padding-bottom: 0.4em;
+                }
+                .temperature {
+                    font-weight: 700;
+                    font-size: 1.5em;
+                }
+                .description {
+                    font-size: 1em;
+                }
+            }
+            img {
+                width: 10vw;
+                height: 10vw;
+                @media (min-width: 1280px) {
+                    width: 70px;
+                    height: 70px;
+                }
+                @media (min-width: 1680px) {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+}
